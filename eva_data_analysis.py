@@ -39,7 +39,7 @@ for i in data:
             pass
         else:
             duration_dt=dt.datetime.strptime(duration_str,'%H:%M')
-            duration_hours = dt.timedelta(hours=t.hour, minutes=t.minute, seconds=t.second).total_seconds()/(60*60)
+            duration_hours = dt.timedelta(hours=duration_dt.hour, minutes=duration_dt.minute, seconds=duration_dt.second).total_seconds()/(60*60)
             print(duration_dt,duration_hours)
             time.append(duration_hours)
             if 'date' in data[j].keys():
@@ -52,7 +52,7 @@ for i in data:
 
 duration_dt=[0]
 for i in time:
-    t.append(duration_dt[-1]+i)
+    duration_dt.append(duration_dt[-1]+i)
 
 date,time = zip(*sorted(zip(date, time)))
 
